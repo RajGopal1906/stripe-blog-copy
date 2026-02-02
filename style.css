@@ -156,13 +156,46 @@ ul {
 
 .blog-row:hover {
     background-color: var(--hover-bg);
-    color: #1E1E1E;
     /* Force dark text on the bright hover */
 }
 
-[data-theme="dark"] .blog-row:hover {
-    color: #1E1E1E;
-    /* Ensure text is dark even in dark mode when hovered */
+/* Rotating Hover Colors - Stripe Style */
+/* 5 distinct vibrant colors rotating through the list */
+.blog-row:nth-child(5n+1):hover {
+    --hover-bg: #80FFDB;
+}
+
+/* Cyan */
+.blog-row:nth-child(5n+2):hover {
+    --hover-bg: #FFB3C1;
+}
+
+/* Pink */
+.blog-row:nth-child(5n+3):hover {
+    --hover-bg: #FFD6A5;
+}
+
+/* Orange */
+.blog-row:nth-child(5n+4):hover {
+    --hover-bg: #BDB2FF;
+}
+
+/* Purple */
+.blog-row:nth-child(5n+5):hover {
+    --hover-bg: #CAFFBF;
+}
+
+/* Lime */
+
+textarea,
+input[type="text"] {
+    width: 100%;
+    padding: 1rem;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    margin-bottom: 1rem;
 }
 
 .row-date {
@@ -257,21 +290,59 @@ ul {
     font-size: 1.1rem;
 }
 
+/* Inline Code - Subtle */
 .article-body code {
-    background: var(--hover-bg);
+    background: rgba(128, 128, 128, 0.2);
     padding: 0.2rem 0.4rem;
     font-family: var(--font-mono);
     font-size: 0.9rem;
     border-radius: 4px;
+    color: inherit;
 }
 
+/* Bash Terminal Block */
 .article-body pre {
-    background: var(--hover-bg);
-    padding: 1.5rem;
-    overflow-x: auto;
+    background: #1E1E1E;
+    /* Always start dark in light mode */
+    color: #E8E8E8;
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+    /* Space for dots */
+    border-radius: 8px;
+    position: relative;
+    font-family: var(--font-mono);
     margin-bottom: 2rem;
-    border-radius: 4px;
-    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+/* Traffic Lights */
+.article-body pre::before {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #FF5F56;
+    box-shadow: 18px 0 0 #FFBD2E, 36px 0 0 #27C93F;
+}
+
+/* Theme Inversion */
+[data-theme="dark"] .article-body pre {
+    background: #FFFFFF;
+    /* White terminal in dark mode */
+    color: #1E1E1E;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure code inside pre inherits correctly */
+.article-body pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
 }
 
 .back-link {

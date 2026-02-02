@@ -65,6 +65,15 @@
                 <p>This simple recursive pattern ensures that transient network issues don't result in failed operations
                     for the user, provided the API endpoint is idempotent.</p>
 
+                <p>Before we start, install the necessary dependencies:</p>
+
+                <pre><code>npm install stripe axios
+# Or if you're using yarn
+yarn add stripe axios</code></pre>
+
+                <h3>1. Authentication</h3>
+                <p>First, we need to authenticate our client...</p>
+
                 <h2>Typing and Developer Experience</h2>
                 <p>In modern development, types are not just a safety feature; they are a documentation feature. By
                     providing rich type definitions (like TypeScript interfaces), we allow our users to explore our API
