@@ -1,0 +1,27 @@
+{
+  "name": "blog-site-vibe-coded",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RajGopal1906/stripe-blog-copy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RajGopal1906/stripe-blog-copy/issues"
+  },
+  "homepage": "https://github.com/RajGopal1906/stripe-blog-copy#readme",
+  "dependencies": {
+    "fs-extra": "^11.3.3",
+    "gray-matter": "^4.0.3",
+    "marked": "^17.0.1"
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="logo">
+            <h1>BLOG</h1>
+        </div>
+        <nav class="site-nav">
+            <a href="../index.html" class="nav-link">[B] BLOG</a>
+            <a href="#" class="nav-link">[D] DOCS</a>
+            <button id="theme-toggle" class="nav-link theme-btn">[T] THEME</button>
+        </nav>
+    </header>
+
+    <main class="main-layout">
+        <aside class="sidebar">
+            <a href="../index.html" class="back-link"><- BACK TO BLOG</a>
+                    <h3 class="filter-title">/ RELATED TOPICS</h3>
+                    <a href="../topics/engineering.html" class="sidebar-link" id="topic-link"># ENGINEERING</a>
+                    <a href="#" class="sidebar-link"># PRODUCT</a>
+                    <a href="#" class="sidebar-link"># ARCHIVE</a>
+        </aside>
+
+        <section class="article-content">
+            <header class="article-header">
+                <span class="article-meta">/ {{DATE}} &nbsp;&mdash;&nbsp; {{CATEGORY}}</span>
+                <h1 class="article-title">{{TITLE}}</h1>
+                <span class="article-meta">By Raj Gopal</span>
+            </header>
+
+            <div class="article-body">
+                {{CONTENT}}
+            </div>
+        </section>
+    </main>
+
+    <footer class="simple-footer">
+        <p>&copy; 2026 Blog HighBandWidth.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>
