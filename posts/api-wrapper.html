@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designing a Robust API Wrapper - Blog Copy</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="logo">
+            <h1>BLOG</h1>
+        </div>
+        <nav class="site-nav">
+            <a href="../index.html" class="nav-link">[B] BLOG</a>
+            <a href="#" class="nav-link">[D] DOCS</a>
+            <button id="theme-toggle" class="nav-link theme-btn">[T] THEME</button>
+        </nav>
+    </header>
+
+    <main class="main-layout">
+        <aside class="sidebar">
+            <a href="../index.html" class="back-link"><- BACK TO BLOG</a>
+                    <h3 class="filter-title">/ RELATED TOPICS</h3>
+                    <a href="../topics/engineering.html" class="sidebar-link active"># ENGINEERING</a>
+                    <a href="#" class="sidebar-link"># API DESIGN</a>
+                    <a href="#" class="sidebar-link"># BEST PRACTICES</a>
+        </aside>
+
+        <section class="article-content">
+            <header class="article-header">
+                <span class="article-meta">/ OCT 12, 2023 &nbsp;&mdash;&nbsp; ENGINEERING</span>
+                <h1 class="article-title">Designing a robust API wrapper</h1>
+                <span class="article-meta">By The Engineering Team</span>
+            </header>
+
+            <div class="article-body">
+                <p>When building an API wrapper, the goal is to create an interface that feels native to the language
+                    while abstracting away the complexities of HTTP requests, authentication, and error handling. At
+                    Stripe, we've spent years refining our SDKs to ensure they are both powerful and intuitive.</p>
+
+                <h2>The Idempotency Problem</h2>
+                <p>One of the biggest challenges in distributed systems is handling network failures. If a request times
+                    out, did it succeed? Should you retry? We solve this with idempotency keys.</p>
+
+                <p>Here is an example of how a client might implement a safe retry mechanism:</p>
+
+                <pre><code>function makeRequest(url, options, retryCount = 0) {
+    try {
+        const response = await fetch(url, options);
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+    } catch (error) {
+        if (retryCount < 3) {
+            console.log(`Retrying... (${retryCount + 1})`);
+            return makeRequest(url, options, retryCount + 1);
+        }
+        throw error;
+    }
+}</code></pre>
+
+                <p>This simple recursive pattern ensures that transient network issues don't result in failed operations
+                    for the user, provided the API endpoint is idempotent.</p>
+
+                <h2>Typing and Developer Experience</h2>
+                <p>In modern development, types are not just a safety feature; they are a documentation feature. By
+                    providing rich type definitions (like TypeScript interfaces), we allow our users to explore our API
+                    directly within their IDE.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="simple-footer">
+        <p>&copy; 2024 Blog Copy. Minimal Footer.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>
